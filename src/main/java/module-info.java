@@ -7,4 +7,6 @@ module nandes.workshop {
 
     opens nandes.workshop to javafx.fxml;
     exports nandes.workshop;
+    exports nandes.workshop.controller;
+    opens nandes.workshop.controller to javafx.fxml;
 }
