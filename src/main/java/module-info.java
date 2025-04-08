@@ -18,4 +18,7 @@ module nandes.workshop {
 
     opens nandes.workshop.model.entities to javafx.base;
     exports nandes.workshop.model.entities to javafx.base;
+
+    opens nandes.workshop.listeners to javafx.base;
+    exports nandes.workshop.listeners to javafx.base;
 }
