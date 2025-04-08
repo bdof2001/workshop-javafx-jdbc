@@ -4,6 +4,7 @@ module nandes.workshop {
 
     requires org.controlsfx.controls;
     requires org.kordamp.bootstrapfx.core;
+    requires java.sql;
 
     opens nandes.workshop to javafx.fxml;
     exports nandes.workshop;
