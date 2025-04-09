@@ -17,6 +17,7 @@ import nandes.workshop.Main;
 import nandes.workshop.db.DbIntegrityException;
 import nandes.workshop.listeners.DataChangeListener;
 import nandes.workshop.model.entities.Seller;
+import nandes.workshop.model.services.DepartmentService;
 import nandes.workshop.model.services.SellerService;
 import nandes.workshop.util.Alerts;
 import nandes.workshop.util.Utils;
@@ -108,7 +109,8 @@ public class SellerListController implements Initializable, DataChangeListener {
 
             SellerFormController controller = loader.getController();
             controller.setSeller(obj);
-            controller.setSellerService(new SellerService());
+            controller.setServices(new SellerService(), new DepartmentService());
+            controller.loadAssociatedObjects();
             controller.subscribeDataChangeListener(this);
             controller.updateFromData();
 
@@ -120,6 +122,7 @@ public class SellerListController implements Initializable, DataChangeListener {
             dialogStage.initModality(Modality.WINDOW_MODAL);
             dialogStage.showAndWait();
         } catch (IOException e) {
+            e.printStackTrace();
             Alerts.showAlert("IO Exception", "Error loading view", e.getMessage(), Alert.AlertType.ERROR);
         }
     }
